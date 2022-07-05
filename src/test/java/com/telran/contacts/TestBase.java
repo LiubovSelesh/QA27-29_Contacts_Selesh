@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -32,17 +33,17 @@ public class TestBase {
         return driver.findElements(locator).size() > 0;
     }
 
-    public boolean isElementPresent2(By loc) {
+    public boolean isElementPresent2(By by) {
         try {
-            driver.findElement(loc);
+            driver.findElement(by);
             return true;
-        } catch (NoSuchElementException ex){
+        } catch (NoSuchElementException exception){
             return false;
         }
     }
 
-    @AfterMethod(enabled = false)
-//    @AfterMethod
+//    @AfterMethod(enabled = false)
+    @AfterMethod
     public void tearDown() {
         driver.quit();
     }
@@ -59,8 +60,7 @@ public class TestBase {
 
     public void login() {
         click(By.xpath("//a[contains(.,'LOGIN')]"));
-        type(By.cssSelector("[placeholder='Email']"), "ron+19@gmail.com");
-        type(By.cssSelector("[placeholder='Password']"), "Ro1234567$");
+        fillLoginRegistrationForm(new User().setEmail("ron+19@gmail.com").setPassword("Ro1234567$"));
         click(By.xpath("//button[contains(.,'Login')]"));
     }
 
@@ -83,5 +83,68 @@ public class TestBase {
                 return true;
         }
         return false;
+    }
+
+    public void addContact() {
+        int i = (int) ((System.currentTimeMillis()) / 1000) % 3600;
+        click(By.xpath("//a[contains(text(),'ADD')]"));
+        fillAddContactForm(new Contact().setName("Max").setLastName("Miller").setPhone("1234567" + i).setEmail("max" + i + "@gmail.com").setAddress("Berlin").setDescription("Friend"));
+        clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
+    }
+
+    public void fillAddContactForm(Contact contact) {
+        type(By.cssSelector("input:nth-child(1)"), contact.getName());
+        type(By.cssSelector("input:nth-child(2)"), contact.getLastName());
+        type(By.cssSelector("input:nth-child(3)"), contact.getPhone());
+        type(By.cssSelector("input:nth-child(4)"), contact.getEmail());
+        type(By.cssSelector("input:nth-child(5)"), contact.getAddress());
+        type(By.cssSelector("input:nth-child(6)"), contact.getDescription());
+    }
+
+    public int sizeOfContacts() {
+        if (isElementPresent(By.cssSelector(".contact-item_card__2SOIM"))){
+            return driver.findElements(By.cssSelector(".contact-item_card__2SOIM")).size();
+        } return 0;
+    }
+
+    public void removeContact() {
+        if (!isContactListEmpty()) {
+            click(By.cssSelector(".contact-item_card__2SOIM"));
+            click(By.xpath("//button[contains(.,'Remove')]"));
+        }
+    }
+
+    public boolean isContactListEmpty() {
+        return driver.findElements(By.cssSelector(".contact-item_card__2SOIM")).isEmpty();
+    }
+
+    public void clickOnSignOutButton() {
+        click(By.xpath("//button[contains(.,'Sign Out')]"));
+    }
+
+    public void pause(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean isSignOutButtonPresent() {
+        return isElementPresent(By.xpath("//button[contains(.,'Sign Out')]"));
+    }
+
+    public void registration() {
+        click(By.xpath("//a[contains(.,'LOGIN')]"));
+        Assert.assertTrue(isElementPresent(By.cssSelector(".login_login__3EHKB")));
+        //fill registration form
+        fillLoginRegistrationForm(new User().setEmail("ron+19@gmail.com").setPassword("Ro1234567$"));
+        //click on the button Registration
+        click(By.xpath("//button[contains(.,'Registration')]"));
+    }
+
+    public void fillLoginRegistrationForm(User user) {
+        type(By.cssSelector("[placeholder='Email']"), user.getEmail());
+        type(By.cssSelector("[placeholder='Password']"), user.getPassword());
     }
 }

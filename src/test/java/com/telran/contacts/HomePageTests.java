@@ -11,8 +11,8 @@ public class HomePageTests extends TestBase {
         System.out.println("Site opened!!!");
 
         isComponentFormPresent();
-        System.out.println("Component Form: " + isComponentFormPresent());
-        isElementPresent(By.cssSelector("div:nth-child(2)>div>div"));
-        isElementPresent2(By.cssSelector("div:nth-child(2)>div>div"));
+//        System.out.println("Component Form: " + isComponentFormPresent());
+//        isElementPresent(By.cssSelector("div:nth-child(2)>div>div"));
+//        isElementPresent2(By.cssSelector("div:nth-child(2)>div>div"));
     }
 }
