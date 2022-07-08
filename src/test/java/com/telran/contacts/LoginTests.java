@@ -1,6 +1,5 @@
 package com.telran.contacts;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,17 +8,17 @@ public class LoginTests extends TestBase{
 
     @BeforeMethod
     public void ensurePrecondition() {
-        if (!isLoginLinkPresent()) {
-            clickOnSignOutButton();
+        if (!app.getHeader().isLoginLinkPresent()) {
+            app.getHeader().clickOnSignOutButton();
         }
     }
 
     @Test
     public void loginUserPositiveTest() {
 //click on Login link
-        login();
+        app.getUser().login();
 //assert the button SignOut
-        Assert.assertTrue(isSignOutButtonPresent());
+        Assert.assertTrue(app.getHeader().isSignOutButtonPresent());
     }
 
 

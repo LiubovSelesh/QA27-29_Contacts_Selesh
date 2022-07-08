@@ -9,19 +9,18 @@ public class CreateAccountTests extends TestBase{
 //precondition: user should be logged out
     @BeforeMethod
     public void ensurePrecondition() {
-        if (!isLoginLinkPresent()) {
-            clickOnSignOutButton();
+        if (!app.getHeader().isLoginLinkPresent()) {
+            app.getHeader().clickOnSignOutButton();
         }
     }
 
     @Test
     public void registrationPositiveTest() {
 //click on the link LOGIN
-        registration();
+        app.getUser().registration();
 //assert the button Sign out displayed
-        Assert.assertTrue(isSignOutButtonPresent());
+        Assert.assertTrue(app.getHeader().isSignOutButtonPresent());
     }
 
 }
-
 

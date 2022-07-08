@@ -1,6 +1,5 @@
 package com.telran.contacts;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,22 +9,22 @@ public class AddContactTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        if (!isLoginLinkPresent()) {
-            click(By.xpath("//button[contains(.,'Sign Out')]"));
+        if (!app.getHeader().isLoginLinkPresent()) {
+            app.getHeader().clickOnSignOutButton();
         } else {
-            login();
+            app.getUser().login();
         }
     }
 
     @Test
     public void addContactPositiveTest() {
-        addContact();
-        Assert.assertTrue(isContactCreated("Max"));
+        app.getContact().addContact();
+        Assert.assertTrue(app.getContact().isContactCreated("Max"));
     }
 
     @AfterMethod
     public void postCondition() {
-        removeContact();
+        app.getContact().removeContact();
     }
 
 }
