@@ -1,4 +1,4 @@
-package com.telran.contacts;
+package com.telran.contacts.models;
 
 public class Contact {
     private String name;

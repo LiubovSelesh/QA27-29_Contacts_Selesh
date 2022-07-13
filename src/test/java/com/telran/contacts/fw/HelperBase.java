@@ -1,4 +1,4 @@
-package com.telran.contacts;
+package com.telran.contacts.fw;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;

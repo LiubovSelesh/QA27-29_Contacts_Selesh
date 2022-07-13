@@ -1,12 +1,13 @@
-package com.telran.contacts;
+package com.telran.contacts.fw;
 
+import com.telran.contacts.models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver driver) {
         super(driver);
@@ -31,7 +32,8 @@ public class ContactHelper extends HelperBase{
                 .setEmail("max" + i + "@gmail.com")
                 .setAddress("Berlin")
                 .setDescription("Friend"));
-        clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
+        click(By.cssSelector(".add_form__2rsm2 button"));
+//        clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
     }
 
 
@@ -42,6 +44,7 @@ public class ContactHelper extends HelperBase{
         type(By.cssSelector("input:nth-child(4)"), contact.getEmail());
         type(By.cssSelector("input:nth-child(5)"), contact.getAddress());
         type(By.cssSelector("input:nth-child(6)"), contact.getDescription());
+        clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
     }
 
     public int sizeOfContacts() {

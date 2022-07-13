@@ -1,10 +1,11 @@
-package com.telran.contacts;
+package com.telran.contacts.fw;
 
+import com.telran.contacts.models.User;
 import org.openqa.selenium.By;
         import org.openqa.selenium.WebDriver;
         import org.testng.Assert;
 
-public class UserHelper extends HelperBase{
+public class UserHelper extends HelperBase {
 
     public UserHelper(WebDriver driver) {
         super(driver);
@@ -15,7 +16,7 @@ public class UserHelper extends HelperBase{
         Assert.assertTrue(isElementPresent(By.cssSelector(".login_login__3EHKB")));
 //fill registration form
         fillLoginRegistrationForm(new User().setEmail("ron+21@gmail.com").setPassword("Ro1234567$"));
-//click on the button Registration
+//click on the button "Registration"
         click(By.xpath("//button[contains(.,'Registration')]"));
     }
 

@@ -1,4 +1,4 @@
-package com.telran.contacts;
+package com.telran.contacts.fw;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

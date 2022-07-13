@@ -1,4 +1,4 @@
-package com.telran.contacts;
+package com.telran.contacts.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -16,9 +16,16 @@ public class CreateAccountTests extends TestBase{
 
     @Test
     public void registrationPositiveTest() {
-//click on the link LOGIN
+//click on the link "LOGIN"
         app.getUser().registration();
-//assert the button Sign out displayed
+//assert the button "Sign out" displayed
+        Assert.assertTrue(app.getHeader().isSignOutButtonPresent());
+    }
+    @Test
+    public void registrationNegativeTest() {
+//click on the link "LOGIN"
+        app.getUser().registration();
+//assert the button "Sign out" displayed
         Assert.assertTrue(app.getHeader().isSignOutButtonPresent());
     }
 
