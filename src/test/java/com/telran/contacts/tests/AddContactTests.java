@@ -57,7 +57,7 @@ public class AddContactTests extends TestBase {
                     .setDescription(split[5])});
             line = reader.readLine();
         }
-            return list.iterator();
+        return list.iterator();
     }
 
 //    @Test(dataProvider = "addNewContact")
@@ -77,12 +77,12 @@ public class AddContactTests extends TestBase {
     public void addContactPositiveTestFromDataCSV(Contact contact) {
         app.getContact().click(By.xpath("//a[contains(text(),'ADD')]"));
         app.getContact().fillContactForm(contact);
-        app.getContact(). click(By.cssSelector(".add_form__2rsm2 button"));
+        app.getContact().click(By.cssSelector(".add_form__2rsm2 button"));
 //        app.getContact().clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
 
     }
 
-    @AfterMethod
+    @AfterMethod(enabled = false)
     public void postCondition() {
         app.getContact().removeContact();
     }

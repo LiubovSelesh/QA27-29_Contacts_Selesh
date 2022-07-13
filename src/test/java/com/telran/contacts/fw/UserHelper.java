@@ -1,5 +1,6 @@
 package com.telran.contacts.fw;
 
+import com.telran.contacts.models.Contact;
 import com.telran.contacts.models.User;
 import org.openqa.selenium.By;
         import org.openqa.selenium.WebDriver;
@@ -19,6 +20,7 @@ public class UserHelper extends HelperBase {
 //click on the button "Registration"
         click(By.xpath("//button[contains(.,'Registration')]"));
     }
+
 
     public void fillLoginRegistrationForm(User user) {
         type(By.cssSelector("[placeholder='Email']"), user.getEmail());
