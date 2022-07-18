@@ -1,6 +1,7 @@
 package com.telran.contacts.tests;
 
 import com.telran.contacts.models.Contact;
+import com.telran.contacts.utils.DataProviders;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -40,25 +41,6 @@ public class AddContactTests extends TestBase {
 //        return list.iterator();
 //    }
 
-    @DataProvider
-    public Iterator<Object[]> addNewContactFromCSV() throws IOException {
-        List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contact.csv")));
-
-        String line = reader.readLine();
-
-        while (line != null) {
-            String[] split = line.split(",");
-            list.add(new Object[]{new Contact().setName(split[0])
-                    .setLastName(split[1])
-                    .setPhone(split[2])
-                    .setEmail(split[3])
-                    .setAddress(split[4])
-                    .setDescription(split[5])});
-            line = reader.readLine();
-        }
-        return list.iterator();
-    }
 
 //    @Test(dataProvider = "addNewContact")
 //    public void addContactPositiveTestFromDataProvider(String name, String lastName, String phone, String email, String address, String description) {
@@ -73,7 +55,7 @@ public class AddContactTests extends TestBase {
 ////        app.getContact().clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
 //
 //    }
-    @Test(dataProvider = "addNewContactFromCSV")
+    @Test(dataProvider = "addNewContactFromCSV", dataProviderClass = DataProviders.class)
     public void addContactPositiveTestFromDataCSV(Contact contact) {
         app.getContact().click(By.xpath("//a[contains(text(),'ADD')]"));
         app.getContact().fillContactForm(contact);
@@ -82,7 +64,8 @@ public class AddContactTests extends TestBase {
 
     }
 
-    @AfterMethod(enabled = false)
+//    @AfterMethod(enabled = false)
+    @AfterMethod
     public void postCondition() {
         app.getContact().removeContact();
     }

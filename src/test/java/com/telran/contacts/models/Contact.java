@@ -8,6 +8,13 @@ public class Contact {
     private String address;
     private String description;
 
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 
     public Contact setName(String name) {
         this.name = name;

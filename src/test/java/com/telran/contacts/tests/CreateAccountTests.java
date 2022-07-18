@@ -1,18 +1,13 @@
 package com.telran.contacts.tests;
 
-import com.telran.contacts.models.Contact;
 import com.telran.contacts.models.User;
+import com.telran.contacts.utils.DataProviders;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class CreateAccountTests extends TestBase{
 
@@ -26,35 +21,6 @@ public class CreateAccountTests extends TestBase{
         }
     }
 
-    @DataProvider
-    public Iterator<Object[]> addNewUserFormCSV() throws IOException {
-        List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/user.csv")));
-
-        String line = reader.readLine();
-
-        while (line != null) {
-            String[] split = line.split(",");
-            list.add(new Object[]{new User().setEmail(split[0]).setPassword(split[1])});
-            line = reader.readLine();
-        }
-        return list.iterator();
-    }
-
-    @DataProvider
-    public Iterator<Object[]> addNewUserFormPasswordCSV() throws IOException {
-        List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/userWrongPassword.csv")));
-
-        String line = reader.readLine();
-
-        while (line != null) {
-            String[] split = line.split(",");
-            list.add(new Object[]{new User().setEmail(split[0]).setPassword(split[1])});
-            line = reader.readLine();
-        }
-        return list.iterator();
-    }
 
     @Test
     public void registrationPositiveTest() {
@@ -64,16 +30,20 @@ public class CreateAccountTests extends TestBase{
         Assert.assertTrue(app.getHeader().isSignOutButtonPresent());
     }
 
-    @Test (dataProvider = "addNewUserFormCSV")
+    @Test (dataProvider = "addNewUserFormCSV", dataProviderClass = DataProviders.class)
     public void registrationNegativeTestWithWrongEmail(User user) {
 
         app.getUser().click(By.xpath("//a[contains(text(),'LOGIN')]"));
         app.getUser().fillLoginRegistrationForm(user);
         app.getUser().click(By.xpath("//button[contains(text(),'Registration')]"));
+        Assert.assertTrue(app.getUser().isAlertPresent());
+
+//        //div[contains(text(),'Registration failed with code 400')]
+
     }
 
 
-    @Test (dataProvider = "addNewUserFormPasswordCSV")
+    @Test (dataProvider = "addNewUserFormPasswordCSV", dataProviderClass = DataProviders.class)
     public void registrationNegativeTestWithWrongPassword(User user) {
 
         app.getUser().click(By.xpath("//a[contains(text(),'LOGIN')]"));
@@ -85,11 +55,10 @@ public class CreateAccountTests extends TestBase{
 
 
 //    @AfterMethod(enabled = false)
-    @AfterMethod(enabled = false)
+    @AfterMethod
     public void postCondition() {
         app.getContact().removeContact();
     }
-
 }
 
 

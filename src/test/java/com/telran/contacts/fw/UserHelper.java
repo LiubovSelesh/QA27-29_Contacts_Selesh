@@ -1,10 +1,9 @@
 package com.telran.contacts.fw;
 
-import com.telran.contacts.models.Contact;
 import com.telran.contacts.models.User;
 import org.openqa.selenium.By;
-        import org.openqa.selenium.WebDriver;
-        import org.testng.Assert;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class UserHelper extends HelperBase {
 
