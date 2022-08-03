@@ -17,18 +17,18 @@ public class TestBase {
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
-    @BeforeMethod
+    @BeforeMethod(enabled = true)
     public void setUp() {
         app.init();
     }
 
-        @AfterMethod(enabled = true)
+        @AfterMethod(enabled = false)
 //    @AfterMethod
     public void tearDown() {
         app.stop();
     }
 
-    @BeforeMethod
+    @BeforeMethod(enabled = true)
     public void startTest(Method m, Object[] p) {
         logger.info("Test start " + m.getName() + " with data: " + Arrays.asList(p));
     }

@@ -1,5 +1,6 @@
 package com.telran.contacts.fw;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -53,6 +54,11 @@ public class ApplicationManager  {
         header = new HeaderHelper(driver);
         homePage = new HomePageHelper(driver);
     }
+
+    public boolean isComponentFormPresent() {
+        return driver.findElements(By.cssSelector("div:nth-child(2)>div>div")).size() > 0;
+    }
+
 
     public void stop() {
         driver.quit();

@@ -26,7 +26,8 @@ public class LoginTests extends TestBase{
     @Test
     public void loginUserNegativeTest() {
         app.getUser().click(By.xpath("//a[contains(.,'LOGIN')]"));
-        app.getUser().fillLoginRegistrationForm(new User().setEmail("ron+21@gmail.com"));
+        app.getUser().fillLoginRegistrationForm(new User().setEmail("ron+21@gmail.com").setPassword("ron"));
+        app.getUser().click(By.xpath("//button[contains(.,'Login')]"));
         Assert.assertTrue(app.getUser().isAlertPresent());
         Assert.assertTrue(app.getUser().isErrorPresent());
     }

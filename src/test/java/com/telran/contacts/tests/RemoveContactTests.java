@@ -20,11 +20,10 @@ public class RemoveContactTests extends TestBase {
     public void removeContactTest() {
         app.getContact().pause(2000);
         int sizeBefore = app.getContact().sizeOfContacts();
-        //   System.out.println(sizeBefore);
         app.getContact().removeContact();
         app.getContact().pause(2000);
         int sizeAfter = app.getContact().sizeOfContacts();
-        //    System.out.println(sizeAfter);
         Assert.assertEquals(sizeAfter,sizeBefore-1);
     }
 }
+
