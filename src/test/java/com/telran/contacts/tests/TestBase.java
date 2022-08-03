@@ -1,6 +1,7 @@
 package com.telran.contacts.tests;
 
 import com.telran.contacts.fw.ApplicationManager;
+import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
@@ -12,7 +13,7 @@ import java.util.Arrays;
 
 public class TestBase {
 
-    protected ApplicationManager app = new ApplicationManager();
+    protected ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
@@ -21,8 +22,8 @@ public class TestBase {
         app.init();
     }
 
-//        @AfterMethod(enabled = false)
-    @AfterMethod
+        @AfterMethod(enabled = true)
+//    @AfterMethod
     public void tearDown() {
         app.stop();
     }
@@ -37,7 +38,7 @@ public class TestBase {
         if (result.isSuccess()) {
             logger.info("PASSED:  test method" +" " +result.getMethod().getMethodName());
         }else {
-            logger.error("FAILED: Test method " + " " +result.getMethod().getMethodName() );
+            logger.error("FAILED: Test method " + " " +result.getMethod().getMethodName() + " " + "Screenshots: " + app.getUser().takeScreenshot() );
         }
 
     }

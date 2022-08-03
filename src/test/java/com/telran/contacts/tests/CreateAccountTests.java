@@ -43,7 +43,7 @@ public class CreateAccountTests extends TestBase{
     }
 
 
-    @Test (dataProvider = "addNewUserFormPasswordCSV", dataProviderClass = DataProviders.class)
+    @Test (dataProvider = "addNewUserFormPasswordCSV", dataProviderClass = DataProviders.class, enabled = false)
     public void registrationNegativeTestWithWrongPassword(User user) {
 
         app.getUser().click(By.xpath("//a[contains(text(),'LOGIN')]"));
@@ -54,8 +54,8 @@ public class CreateAccountTests extends TestBase{
 
 
 
-//    @AfterMethod(enabled = false)
-    @AfterMethod
+    @AfterMethod(enabled = false)
+//    @AfterMethod
     public void postCondition() {
         app.getContact().removeContact();
     }

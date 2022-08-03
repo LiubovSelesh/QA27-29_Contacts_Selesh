@@ -31,4 +31,8 @@ public class UserHelper extends HelperBase {
         fillLoginRegistrationForm(new User().setEmail("ron+21@gmail.com").setPassword("Ro1234567$"));
         click(By.xpath("//button[contains(.,'Login')]"));
     }
+
+    public boolean isErrorPresent() {
+        return isElementPresent(By.xpath("//div[contains(text(),'Login Failed with code 400')]"));
+    }
 }
