@@ -22,7 +22,7 @@ public class CreateAccountTests extends TestBase{
     }
 
 
-    @Test
+    @Test(enabled = false)
     public void registrationPositiveTest() {
 //click on the link "LOGIN"
         app.getUser().registration();
@@ -30,17 +30,17 @@ public class CreateAccountTests extends TestBase{
         Assert.assertTrue(app.getHeader().isSignOutButtonPresent());
     }
 
-    @Test (dataProvider = "addNewUserFormCSV", dataProviderClass = DataProviders.class)
-    public void registrationNegativeTestWithWrongEmail(User user) {
-
-        app.getUser().click(By.xpath("//a[contains(text(),'LOGIN')]"));
-        app.getUser().fillLoginRegistrationForm(user);
-        app.getUser().click(By.xpath("//button[contains(text(),'Registration')]"));
-        Assert.assertTrue(app.getUser().isAlertPresent());
+//    @Test (dataProvider = "addNewUserFormCSV", dataProviderClass = DataProviders.class)
+//    public void registrationNegativeTestWithWrongEmail(User user) {
+//
+//        app.getUser().click(By.xpath("//a[contains(text(),'LOGIN')]"));
+//        app.getUser().fillLoginRegistrationForm(user);
+//        app.getUser().click(By.xpath("//button[contains(text(),'Registration')]"));
+//        Assert.assertTrue(app.getUser().isAlertPresent());
 
 //        //div[contains(text(),'Registration failed with code 400')]
 
-    }
+//    }
 
 
     @Test (dataProvider = "addNewUserFormPasswordCSV", dataProviderClass = DataProviders.class, enabled = false)

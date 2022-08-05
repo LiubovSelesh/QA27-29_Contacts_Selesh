@@ -29,32 +29,45 @@ public class AddContactTests extends TestBase {
     @Test
     public void addContactPositiveTest() {
         app.getContact().addContact();
-//        Assert.assertTrue(app.getContact().isContactCreated("Max"));
-//        app.getContact().removeContact();
+        Assert.assertTrue(app.getContact().isContactCreated("Max"));
     }
 
+//    @DataProvider
+//    public Iterator<Object[]> addNewContact() {
+//        List<Object[]> list = new ArrayList<>();
+//        list.add(new Object[]{"Katy", "Killer", "123456789", "killer@gm.com", "Berlin", "Friend"});
+//        list.add(new Object[]{"Rok", "Bayar", "185423789", "bayar@gm.com", "Berlin", "Friend"});
+//        list.add(new Object[]{"Tim", "Tomson", "123456789", "tomson@gm.com", "Berlin", "Friend"});
+//        return list.iterator();
+//    }
 
-    @Test(dataProvider = "addNewContactFromCSV", dataProviderClass = DataProviders.class)
+
+//    @Test(dataProvider = "addNewContact")
+//    public void addContactPositiveTestFromDataProvider(String name, String lastName, String phone, String email, String address, String description) {
+//        app.getContact().click(By.xpath("//a[contains(text(),'ADD')]"));
+//        app.getContact().fillContactForm(new Contact().setName(name)
+//                                                        .setLastName(lastName)
+//                                                        .setPhone(phone)
+//                                                        .setEmail(email)
+//                                                        .setAddress(address)
+//                                                        .setDescription(description));
+//        app.getContact(). click(By.cssSelector(".add_form__2rsm2 button"));
+////        app.getContact().clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
+//
+//    }
+    @Test(dataProvider = "addNewContactFromCSV", dataProviderClass = DataProviders.class, enabled = false)
     public void addContactPositiveTestFromDataCSV(Contact contact) {
         app.getContact().click(By.xpath("//a[contains(text(),'ADD')]"));
         app.getContact().fillContactForm(contact);
         app.getContact().click(By.cssSelector(".add_form__2rsm2 button"));
-//        app.getContact().clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
+
 
     }
 
-
-//    @Test(dataProvider = "addNewContactFromCSV", dataProviderClass = DataProviders.class)
-//    public void addContactPositiveTestFromCSV(Contact contact) {
-//        app.getContact().clickOnAddLink();
-//        app.getContact().fillContactForm(contact);
-//        app.getContact().clickOnSaveButtonWithAction();
-
-
-    @AfterMethod(enabled = false)
-//    @AfterMethod
+//    @AfterMethod(enabled = false)
+    @AfterMethod
     public void postCondition() {
-//        app.getContact().removeContact();
+        app.getContact().removeContact();
     }
 
 }

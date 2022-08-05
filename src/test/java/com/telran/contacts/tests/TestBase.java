@@ -22,7 +22,7 @@ public class TestBase {
         app.init();
     }
 
-        @AfterMethod(enabled = false)
+        @AfterMethod(enabled = true)
 //    @AfterMethod
     public void tearDown() {
         app.stop();

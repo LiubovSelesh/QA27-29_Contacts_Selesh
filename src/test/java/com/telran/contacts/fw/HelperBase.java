@@ -57,6 +57,9 @@ public class HelperBase {
         actions.moveToElement(element).perform();
         element.click();
     }
+    public Alert getAlert() {
+        return new WebDriverWait(driver, 20).until(ExpectedConditions.alertIsPresent());
+    }
 
     public boolean isAlertPresent() {
         Alert alert = new WebDriverWait(driver, 20).until(ExpectedConditions.alertIsPresent());
@@ -70,6 +73,11 @@ public class HelperBase {
     }
 
     public String  takeScreenshot() {
+//        Alert alert = getAlert();
+//        if (alert != null) {
+//            driver.switchTo().alert().accept();
+//        }
+
        File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
        File screenshot = new File("screenshots/screen" + System.currentTimeMillis() + ".png");
         try {

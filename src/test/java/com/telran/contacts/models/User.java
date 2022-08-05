@@ -1,14 +1,6 @@
 package com.telran.contacts.models;
 
 public class User {
-    @Override
-    public String toString() {
-        return "User{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
-
     private String email;
     private String password;
 
@@ -31,5 +23,13 @@ public class User {
         return password;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 
 }
+

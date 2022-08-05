@@ -4,19 +4,19 @@
     <test name="SmokyTestsForLoginAddRemove" >
         <classes>
             <class name="com.telran.contacts.tests.LoginTests">
-                <methods>
-                    <exclude name=".*Negative.*"></exclude>
-                </methods>
+<!--                <methods>-->
+<!--                    <exclude name=".*Negative.*"></exclude>-->
+<!--                </methods>-->
             </class>
             <class name="com.telran.contacts.tests.AddContactTests">
-                <methods>
-                    <exclude name=".*Negative.*"></exclude>
-                </methods>
+<!--                <methods>-->
+<!--                    <exclude name=".*Negative.*"></exclude>-->
+<!--                </methods>-->
             </class>
             <class name="com.telran.contacts.tests.RemoveContactTests">
-                <methods>
-                    <exclude name=".*Negative.*"></exclude>
-                </methods>
+<!--                <methods>-->
+<!--                    <exclude name=".*Negative.*"></exclude>-->
+<!--                </methods>-->
             </class>
         </classes>
     </test>
