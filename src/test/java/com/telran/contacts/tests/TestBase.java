@@ -13,7 +13,8 @@ import java.util.Arrays;
 
 public class TestBase {
 
-    protected ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));
+//    protected ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));
+    protected ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
