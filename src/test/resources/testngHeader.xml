@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Header" verbose="1" >
+    <test name="Header" >
+        <classes>
+            <class name="com.telran.contacts.tests.HomePageTests">
+            </class>
+        </classes>
+    </test>
+</suite>
