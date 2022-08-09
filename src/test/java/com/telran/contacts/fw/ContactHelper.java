@@ -44,7 +44,7 @@ public class ContactHelper extends HelperBase {
         type(By.cssSelector("input:nth-child(4)"), contact.getEmail());
         type(By.cssSelector("input:nth-child(5)"), contact.getAddress());
         type(By.cssSelector("input:nth-child(6)"), contact.getDescription());
-        clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
+;
     }
 
     public int sizeOfContacts() {
