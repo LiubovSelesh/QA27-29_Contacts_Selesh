@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telran.contacts.tests.AddContactTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-08-09T08:50:38" hostname="DESKTOP-B22BUUO" time="30.774">
+  <properties/>
+  <testcase name="addContactPositiveTest" classname="com.telran.contacts.tests.AddContactTests" time="2.953"/>
+  <testcase name="addContactPositiveTestFromDataCSV[0](Contact{name='Katy', phone='123456789'})" classname="com.telran.contacts.tests.AddContactTests" time="4.542"/>
+  <testcase name="addContactPositiveTestFromDataCSV[1](Contact{name='Rok', phone='544541546'})" classname="com.telran.contacts.tests.AddContactTests" time="3.672"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 102.0.5005.61 (0e59bcc00cc4985ce39ad31c150065f159d95ad3-refs/branch-heads/5005@{#819}) on port 11368
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+[1660035035.849][WARNING]: This version of ChromeDriver has not been tested with Chrome version 103.
+Aug 09, 2022 10:50:36 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 102.0.5005.61 (0e59bcc00cc4985ce39ad31c150065f159d95ad3-refs/branch-heads/5005@{#819}) on port 11599
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+[1660035046.591][WARNING]: This version of ChromeDriver has not been tested with Chrome version 103.
+Aug 09, 2022 10:50:47 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 102.0.5005.61 (0e59bcc00cc4985ce39ad31c150065f159d95ad3-refs/branch-heads/5005@{#819}) on port 46811
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+[1660035060.954][WARNING]: This version of ChromeDriver has not been tested with Chrome version 103.
+Aug 09, 2022 10:51:01 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
