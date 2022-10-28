@@ -33,7 +33,6 @@ public class ContactHelper extends HelperBase {
                 .setAddress("Berlin")
                 .setDescription("Friend"));
         click(By.cssSelector(".add_form__2rsm2 button"));
-//        clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
     }
 
 

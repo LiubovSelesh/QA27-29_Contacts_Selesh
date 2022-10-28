@@ -14,9 +14,7 @@ public class UserHelper extends HelperBase {
     public void registration() {
         click(By.xpath("//a[contains(.,'LOGIN')]"));
         Assert.assertTrue(isElementPresent(By.cssSelector(".login_login__3EHKB")));
-//fill registration form
         fillLoginRegistrationForm(new User().setEmail("ron+21@gmail.com").setPassword("Ro1234567$"));
-//click on the button "Registration"
         click(By.xpath("//button[contains(.,'Registration')]"));
     }
 

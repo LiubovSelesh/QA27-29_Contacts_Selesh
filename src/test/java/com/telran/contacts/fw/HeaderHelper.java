@@ -2,7 +2,6 @@ package com.telran.contacts.fw;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class HeaderHelper extends HelperBase {
 

@@ -50,7 +50,7 @@ public class HelperBase {
         }
     }
 
-    public void clickWithAction(By save) {
+    public void clickWithAction(By save) {        //this method scroll the page
         Actions actions = new Actions(driver);
         WebElement element = driver.findElement(save);
 
@@ -87,4 +87,7 @@ public class HelperBase {
         }
         return screenshot.getAbsolutePath();
     }
+
+
+
 }
