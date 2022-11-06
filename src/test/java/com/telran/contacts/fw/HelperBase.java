@@ -73,10 +73,10 @@ public class HelperBase {
     }
 
     public String  takeScreenshot() {
-//        Alert alert = getAlert();
-//        if (alert != null) {
-//            driver.switchTo().alert().accept();
-//        }
+        Alert alert = getAlert();
+        if (alert != null) {
+            driver.switchTo().alert().accept();
+        }
 
        File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
        File screenshot = new File("screenshots/screen" + System.currentTimeMillis() + ".png");

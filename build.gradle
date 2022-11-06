@@ -16,10 +16,6 @@ dependencies {
 
 }
 
-//test {
-//    useTestNG()
-//}
-
 task testy(type: Test) {
     useTestNG()
     if (project.hasProperty('browser')) {
